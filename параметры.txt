@@ -1,0 +1,341 @@
+
+
+/* UF_PARAM_CORNER_CONTROL_METHOD
+ *
+ *  Description:  corner control method
+ *
+ *  Type: UF_PARAM_type_int
+ *
+ *  Name: Corner Control Method
+ *  Variable Name: <prefix>_corner_control_method
+ *  Possible Values:
+ *
+ *  FOR LATHE:
+ *                0 = UNDEFINED
+ *                1 = ROLL AROUND (ADD ARCS)
+ *                2 = CLEAR CORNER (EXTEND TANGENTS)
+ *                3 = ROUND CORNER
+ *                4 = CHAMFER CORNER
+ *  FOR 2-2 1/2 AXIS MILL:
+ *                0 = UNDEFINED
+ *                1 = ACTIVE (ADD ARCS)
+ *                2 = INACTIVE (EXTEND TANGENTS)
+ *  FOR 3-5 AXIS MILL:
+ *                0 = UNDEFINED
+ *                1 = NO CORNER CONTROL
+ *                2 = ISSUE WARNING
+ *                3 = LIFT UNTIL PAST CORNER
+ *                4 = USE TANGENT EXTENSIONS
+ *                5 = STOP PROCESSING
+ *
+ * 
+ */
+#define UF_PARAM_CORNER_CONTROL_METHOD   24  /* UF_PARAM_type_int */
+
+
+typedef enum
+{
+    UF_PARAM_corner_cir_feed_comp_off = 0,
+    UF_PARAM_corner_cir_feed_comp_on  = 1
+} UF_PARAM_corner_cir_feed_comp_t;
+
+
+/* UF_PARAM_CORNER_CIR_FEED_COMP
+ *
+ *   Description:
+ *      Parameter indicates whether Circular
+ *      Feedrate Compensation is on or off.
+ *
+ *   Type: UF_PARAM_type_int
+ *
+ *   Name: Corner Circular Feed Compensation
+ *  Variable Name: <prefix>_corner_circular_feed_compensation
+ *
+ *   Possible Values: UF_PARAM_corner_cir_feed_comp_t
+ *
+ * 
+ */
+#define UF_PARAM_CORNER_CIR_FEED_COMP   201  /* UF_PARAM_type_int */
+
+
+typedef enum
+{
+    UF_PARAM_corner_fillet_type_none       = 0,
+    UF_PARAM_corner_fillet_type_on_wall    = 1,
+    UF_PARAM_corner_fillet_type_all_passes = 2
+
+} UF_PARAM_corner_fillet_type_t;
+
+
+/* UF_PARAM_CORNER_FILLET_TYPE
+ *
+ *   Description:
+ *      Parameter indicates filleting types at corners of
+ *      the toolpaths.
+ *
+ *   Type: UF_PARAM_type_int
+ *
+ *   Name: Corner Fillet Type
+ *  Variable Name: <prefix>_corner_fillet_type
+ *
+ *   Possible Values: UF_PARAM_corner_fillet_type_t
+ *
+ * 
+ */
+#define UF_PARAM_CORNER_FILLET_TYPE   202  /* UF_PARAM_type_int */
+
+
+/* UF_PARAM_CORNER_FILLET_PATH_RADIUS
+ *
+ *   Description:
+ *      Paramter is the radius of corner fillet.
+ *
+ *   Type: UF_PARAM_type_double_length
+ *
+ *   Name: Corner Fillet Path Radius
+ *  Variable Name: <prefix>_corner_fillet_path_radius
+ *
+ *   Possible Values: positive UF_PARAM_type_double_length.
+ *
+ * 
+ */
+#define UF_PARAM_CORNER_FILLET_PATH_RADIUS   203  /* UF_PARAM_type_double_length */
+
+
+
+/* UF_PARAM_MINIMUM_CORNER_FILLET_RADIUS
+ *
+ *   Description:
+ *      Paramter is the smalled permitted radius of a corner fillet.
+ *
+ *   Type: UF_PARAM_type_double_length
+ *
+ *   Name: Minimum Corner Fillet Path Radius
+ *  Variable Name: <prefix>_minimum_corner_fillet_path_radius
+ *
+ *   Possible Values: positive UF_PARAM_type_double_length.
+ *
+ * 
+ */
+#define UF_PARAM_MINIMUM_CORNER_FILLET_RADIUS   1824  /* UF_PARAM_type_int */
+
+/* UF_PARAM_CORNER_MAX_TLAXIS
+ *
+ *   Description: Maximum tool axis change at corner.
+ *
+ *
+ *   Type: UF_PARAM_type_double
+ *
+ *   Name: Corner Max Tool Axis
+ *  Variable Name: <prefix>_corner_max_tool_axis
+ *
+ *   Possible Values:
+ *
+ * 
+ */
+#define UF_PARAM_CORNER_MAX_TLAXIS   204  /* UF_PARAM_type_double */
+
+
+/* UF_PARAM_CORNER_MAX_ANGLE
+ *
+ *   Description:
+ *      Parameter is the maximum angle for corner control,
+ *         i.e. for corner filleting of corner slowdowns.
+ *
+ *   Type: UF_PARAM_type_double
+ *
+ *   Name: Corner Max Included Angle
+ *  Variable Name: <prefix>_corner_max_included_angle
+ *
+ *   Possible Values: 0.0 < maximum angle < 180.0.
+ *
+ * 
+ */
+#define UF_PARAM_CORNER_MAX_ANGLE   205  /* UF_PARAM_type_double */
+
+
+/* UF_PARAM_CORNER_MIN_ANGLE
+ *
+ *   Description:
+ *      Parameter is the minimum angle for corner control,
+ *         i.e. for corner filleting of corner slowdowns.
+ *
+ *   Type: UF_PARAM_type_double
+ *
+ *   Name: Corner Min Included Angle
+ *  Variable Name: <prefix>_corner_min_included_angle
+ *
+ *   Possible Values: 0.0 <= minimum angle < 180.0
+ *
+ * 
+ */
+#define UF_PARAM_CORNER_MIN_ANGLE   206  /* UF_PARAM_type_double */
+
+
+typedef enum
+{
+    UF_PARAM_corner_slowdown_status_off = 0,
+    UF_PARAM_corner_slowdown_status_on  = 1
+
+} UF_PARAM_corner_slowdown_status_t;
+
+
+/* UF_PARAM_CORNER_SLOWDOWN_STATUS
+ *
+ *   Description:
+ *      Parameter indicates whether corner slowdown
+ *      is on or off.
+ *
+ *   Type: UF_PARAM_type_int
+ *
+ *   Name: Corner Slowdown Status
+ *  Variable Name: <prefix>_corner_slowdown_status
+ *
+ *   Possible Values: UF_PARAM_corner_slowdown_status_t
+ *
+ * 
+ */
+#define UF_PARAM_CORNER_SLOWDOWN_STATUS   207  /* UF_PARAM_type_int */
+
+
+typedef enum
+{
+    UF_PARAM_corner_slowdown_length_method_previous_tool = 0,
+    UF_PARAM_corner_slowdown_length_method_percent_tool  = 1
+
+} UF_PARAM_corner_slowdown_length_method_t;
+
+
+/* UF_PARAM_CORNER_SLOWDOWN_LENGTH_METHOD
+ *
+ *   Description:
+ *      Parameter determines which slowdown method
+ *      is to be used if slowdowns are on.
+ *
+ *   Type: UF_PARAM_type_int
+ *
+ *   Name: Corner Slowdown Length Method
+ *  Variable Name: <prefix>_corner_slowdown_length_method
+ *
+ *   Possible Values: UF_PARAM_corner_slowdown_length_method_t
+ *
+ * 
+ */
+#define UF_PARAM_CORNER_SLOWDOWN_LENGTH_METHOD   208  /* UF_PARAM_type_int */
+
+
+/* UF_PARAM_CORNER_TL_DIAM_PERCENT
+ *
+ *   Description:
+ *      Parameter, used by corner slowdown if the
+ *      Percent Tool method is selected, is 100.0
+ *      times the ratio of the slowdown length to
+ *      the tool diameter.
+ *
+ *   Type: UF_PARAM_type_double
+ *
+ *   Name: Corner Tool Diameter Percent
+ *  Variable Name: <prefix>_corner_tool_diameter_percent
+ *
+ *   Possible Values:  positive UF_PARAM_type_double
+ *
+ * 
+ */
+#define UF_PARAM_CORNER_TL_DIAM_PERCENT   209  /* UF_PARAM_type_double */
+
+
+/* UF_PARAM_CORNER_NUM_STEPS
+ *
+ *   Description:
+ *      Parameter is the number of decrements
+ *      in feedrate used to accomplish a slowdown.
+ *
+ *   Type: UF_PARAM_type_int
+ *
+ *   Name: Corner Slowdown Num Steps
+ *  Variable Name: <prefix>_corner_slowdown_num_steps
+ *
+ *   Possible Values: positive UF_PARAM_type_int
+ *
+ * 
+ */
+#define UF_PARAM_CORNER_NUM_STEPS   210  /* UF_PARAM_type_int */
+
+
+/* UF_PARAM_CORNER_PREV_TL_DIAM
+ *
+ *   Description:
+ *      Parameter, used by corner slowdown if the
+ *      previous tool diameter method is selected,
+ *      is the tool diameter of the last tool used
+ *      in cutting a part.
+ *
+ *   Type: UF_PARAM_type_double_length
+ *
+ *   Name: Corner Previous Tool Diameter
+ *  Variable Name: <prefix>_corner_previous_tool_diameter
+ *
+ *   Possible Values: positive UF_PARAM_type_double_length
+ *
+ * 
+ */
+#define UF_PARAM_CORNER_PREV_TL_DIAM   211  /* UF_PARAM_type_double_length */
+
+
+/* UF_PARAM_CORNER_FEED_ADJUST_PERCENT
+ *
+ *   Description:
+ *      Parameter, used by corner slowdown only, is
+ *      the 100 times the ratio of the feedrate at
+ *      the end of a slowdown to the feedrate at the
+ *      start of a slowdown.
+ *
+ *   Type: UF_PARAM_type_double
+ *
+ *   Name: Corner Feed Adjust Percent
+ *  Variable Name: <prefix>_corner_feed_adjust_percent
+ *
+ *   Possible Values: positive UF_PARAM_type_double
+ *
+ * 
+ */
+#define UF_PARAM_CORNER_FEED_ADJUST_PERCENT   212  /* UF_PARAM_type_double */
+
+
+/* UF_PARAM_CIR_FEED_COMP_MAXIMUM
+ *
+ *   Description:
+ *      Paramter is the maximum compensation factor
+ *      for circular feedrate compensation..
+ *
+ *   Type: UF_PARAM_type_double
+ *
+ *   Name: Maximum Circular Feedrate Compensation Factor.
+ *  Variable Name: <prefix>_maximum_circular_feedrate_compensation_factor_
+ *
+ *   Possible Values: UF_PARAM_type_double >= 1.0.
+ *
+ * 
+ */
+#define UF_PARAM_CIR_FEED_COMP_MAXIMUM   5650        /* UF_PARAM_type_double_length */
+
+
+/* UF_PARAM_CIR_FEED_COMP_MINIMUM
+ *
+ *   Description:
+ *      Paramter is the minimum compensation factor
+ *      for circular feedrate compensation..
+ *
+ *   Type: UF_PARAM_type_double
+ *
+ *   Name: Minimum Circular Feedrate Compensation Factor.
+ *  Variable Name: <prefix>_minimum_circular_feedrate_compensation_factor_
+ *
+ *   Possible Values: 0.0 < UF_PARAM_type_double <= 1.0.
+ *
+ * 
+ */
+#define UF_PARAM_CIR_FEED_COMP_MINIMUM   5651        /* UF_PARAM_type_double_length */
+
+
+
